@@ -197,3 +197,14 @@ function getFbUserData(){
 // }, false);
 
 
+
+
+
+$('#logout').click(function(){
+    console.log('logout clicked')
+
+    FB.logout(function(response) {
+        // Person is now logged out
+        console.log(response);
+     });
+})
