@@ -200,7 +200,8 @@ function getFbUserData(){
 
 
 
-$('#logout').click(function(){
+$('#logout').click(function(e){
+    e.preventDefault();
     console.log('logout clicked')
 
     FB.logout(function(response) {
