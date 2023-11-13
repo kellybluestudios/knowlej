@@ -169,7 +169,7 @@ function getFbUserData(){
 
        console.log(response);
        localStorage.setItem('fb_user_profile', JSON.stringify(response));
-       window.location('https://knowlejapp.webflow.io/admin-dashboards/reports');
+       window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports');
     });
 }
 
