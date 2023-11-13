@@ -90,8 +90,8 @@ function testAPI() {                      // Testing Graph API after login.  See
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function (response) {
         console.log('Successful login for: ' + response.name);
-        document.getElementById('status').innerHTML =
-            'Thanks for logging in, ' + response.name + '!';
+        // document.getElementById('status').innerHTML =
+        //     'Thanks for logging in, ' + response.name + '!';
     });
 }
 
@@ -102,6 +102,7 @@ function fLogin(){
           // Logged into your webpage and Facebook.
           console.log('facebook logint in ')
           console.log(response)
+          getFbUserData();
         } else {
           // The person is not logged into your webpage or we are unable to tell. 
           console.log('not-wro')
@@ -109,7 +110,11 @@ function fLogin(){
       });
 }
 
-
+$('#facebook_sign_in').click(function (e) {
+    e.preventDefault();
+    console.log('btn clicked')
+    fLogin();
+})
 
 
 
@@ -158,15 +163,12 @@ function fLogin(){
 // }
 
 // Fetch the user profile data from facebook
-// function getFbUserData(){
-//     FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
-//     function (response) {
-//         document.getElementById('fbLink').setAttribute("onclick","fbLogout()");
-//         document.getElementById('fbLink').innerHTML = 'Logout from Facebook';
-//         document.getElementById('status').innerHTML = '<p>Thanks for logging in, ' + response.first_name + '!</p>';
-//         document.getElementById('userData').innerHTML = '<h2>Facebook Profile Details</h2><p><img src="'+response.picture.data.url+'"/></p><p><b>FB ID:</b> '+response.id+'</p><p><b>Name:</b> '+response.first_name+' '+response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
-//     });
-// }
+function getFbUserData(){
+    FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
+    function (response) {
+       console.log(response);
+    });
+}
 
 // // Logout from facebook
 // function fbLogout() {
@@ -195,8 +197,3 @@ function fLogin(){
 // }, false);
 
 
-$('#facebook_sign_in').click(function (e) {
-    e.preventDefault();
-    console.log('btn clicked')
-    fLogin();
-})
