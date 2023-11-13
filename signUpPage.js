@@ -166,7 +166,10 @@ $('#facebook_sign_in').click(function (e) {
 function getFbUserData(){
     FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
     function (response) {
+
        console.log(response);
+       localStorage.setItem('fb_user_profile', JSON.stringify(response));
+       window.location('https://knowlejapp.webflow.io/admin-dashboards/reports');
     });
 }
 

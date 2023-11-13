@@ -36,6 +36,9 @@ $('#r_logout').click(function (e) {
             localStorage.setItem('user', '');
             localStorage.setItem('access_token', '');
             localStorage.setItem('auth_info', '');
+            FB.logout(function(response) {
+                // Person is now logged out
+             });
             window.location.replace('https://knowlejapp.webflow.io/')
         } else {
             console.log('Something Went Wrong')
