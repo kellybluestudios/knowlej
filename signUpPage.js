@@ -96,8 +96,21 @@ function testAPI() {                      // Testing Graph API after login.  See
 }
 
 
-$('#facebook_sign_in').click(function (e) {
-    e.preventDefault();
-    console.log('btn clicked')
-    checkLoginState();
-})
+// $('#facebook_sign_in').click(function (e) {
+//     e.preventDefault();
+//     console.log('btn clicked')
+//     checkLoginState();
+// })
+
+document.getElementById('facebook_sign_in').addEventListener('click', () => {
+    console.log('btn click')
+	//do the login
+	FB.login((response) => {
+		if (response.authResponse) {
+			//user just authorized your app
+			// document.getElementById('loginBtn').style.display = 'none';
+			checkLoginState();
+            console.log(response);
+		}
+	}, {scope: 'email,public_profile', return_scopes: true});
+}, false);
