@@ -57,21 +57,6 @@ $('#google_sign_in').click(function (e) {
     googleSignIn();
 })
 
-
-function fLogin() {
-    FB.login(function (response) {
-        if (response.status === 'connected') {
-            // Logged into your webpage and Facebook.
-            getFbUserData();
-        } else {
-            // The person is not logged into your webpage or we are unable to tell. 
-            console.log('not-wro')
-            $('.r_signin_error_invalid').text('Something went wrong. Please try again')
-            $('.r_signin_error_invalid').show();
-        }
-    });
-}
-
 $('#facebook_sign_in').click(function (e) {
     e.preventDefault();
     fLogin();

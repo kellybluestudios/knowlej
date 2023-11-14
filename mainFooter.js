@@ -38,8 +38,10 @@ $('#r_logout').click(function (e) {
             localStorage.setItem('auth_info', '');
             FB.logout(function(response) {
                 // Person is now logged out
+                    console.log(response)
+
              });
-            window.location.replace('https://knowlejapp.webflow.io/')
+            // window.location.replace('https://knowlejapp.webflow.io/')
         } else {
             console.log('Something Went Wrong')
         }

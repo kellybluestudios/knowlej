@@ -79,3 +79,15 @@ $('#email-form').submit(function (event) {
     asyncPostCall()
 
 })
+
+
+
+$('#google_sign_in').click(function (e) {
+    e.preventDefault();
+    googleSignIn();
+})
+
+$('#facebook_sign_in').click(function (e) {
+    e.preventDefault();
+    fLogin();
+})
