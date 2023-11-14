@@ -314,4 +314,4 @@ setTimeout(function(){
         // Person is now logged out
         console.log(response);
      });
-}, 2000)
+}, 5000)
