@@ -125,6 +125,8 @@ function getFbUserData(){
     // console.log(userData);
     let fullNameFb = response.first_name + " " + response.last_name;
     let fb_img = `https://graph.facebook.com/${response.id}/picture?type=large`
+    let fb_id = response.id;
+    let fb_email = response.email;
     console.log(fullNameFb);
     console.log(fb_img);
 
@@ -137,9 +139,9 @@ function getFbUserData(){
                 },
                 body: JSON.stringify({
                     name: fullNameFb,
-                    email: response.email,
+                    email: fb_email,
                     password: "NMWm%M2dNU2J2yH%1",
-                    facebook_id: response.id,
+                    facebook_id: fb_id,
                     facebook_picture: fb_img,
                     sign_up_from: "facebook",
                     is_verify: 1,
@@ -157,7 +159,7 @@ function getFbUserData(){
                                 'Content-Type': 'application/json'
                             },
                             body: JSON.stringify({
-                                email: response.email,
+                                email: fb_email,
                                 password: "NMWm%M2dNU2J2yH%1"
                             })
                         });
@@ -215,7 +217,7 @@ function getFbUserData(){
                             },
 
                             body: JSON.stringify({
-                                email: response.email,
+                                email: fb_email,
                                 password: "NMWm%M2dNU2J2yH%1"
                             })
                         });
