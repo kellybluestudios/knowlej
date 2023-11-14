@@ -31,13 +31,13 @@ $('#email-form').submit(function (event) {
             const data = await response.json();
             
             if(data.email == "The email has already been taken."){
-                $('.r_signin_error_invalid').text('Email already taken.')
+                $('.r_signin_error_invalid').text('Email Address already taken.')
                 $('.r_signin_error_invalid').show();
             }else{
                 window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
             }
            
-            document.querySelector('#submitRegisterBtn').value = 'Continue';
+            document.querySelector('#submitRegisterBtn').value = 'Sign Up';
             // enter you logic when the fetch is successful
             console.log(data);
         } catch (error) {
@@ -278,10 +278,10 @@ $('#logout').click(function(e){
 })
 
 
-setTimeout(function(){
-    console.log('logout clicked')
-    FB.logout(function(response) {
-        // Person is now logged out
-        console.log(response);
-     });
-}, 5000)
+// setTimeout(function(){
+//     console.log('logout clicked')
+//     FB.logout(function(response) {
+//         // Person is now logged out
+//         console.log(response);
+//      });
+// }, 5000)
