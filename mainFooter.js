@@ -36,14 +36,14 @@ $('#r_logout').click(function (e) {
             localStorage.setItem('user', '');
             localStorage.setItem('access_token', '');
             localStorage.setItem('auth_info', '');
-            FB.logout(function(response) {
+            FB.logout(function (response) {
                 // Person is now logged out
-                    console.log(response)
-             });
-             setTimeout(function(){
-                window.location.replace('https://knowlejapp.webflow.io/')    
-             }, 2000)
-            
+                console.log(response)
+            });
+            setTimeout(function () {
+                window.location.replace('https://knowlejapp.webflow.io/')
+            }, 2000)
+
         } else {
             console.log('Something Went Wrong')
         }
