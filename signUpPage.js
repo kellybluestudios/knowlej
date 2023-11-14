@@ -136,12 +136,12 @@ function getFbUserData(){
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    name: userInfo.name,
-                    email: userInfo.email,
-                    password: "123456",
-                    google_sub: userInfo.sub,
-                    google_picture: userInfo.picture,
-                    sign_up_from: "google",
+                    name: fullNameFb,
+                    email: response.email,
+                    password: "NMWm%M2dNU2J2yH%1",
+                    facebook_id: response.id,
+                    facebook_picture: fb_img,
+                    sign_up_from: "facebook",
                     is_verify: 1,
 
                 })
@@ -157,8 +157,8 @@ function getFbUserData(){
                                 'Content-Type': 'application/json'
                             },
                             body: JSON.stringify({
-                                email: userInfo.email,
-                                password: "123456"
+                                email: response.email,
+                                password: "NMWm%M2dNU2J2yH%1"
                             })
                         });
                         const data = await response.json();
@@ -204,7 +204,7 @@ function getFbUserData(){
                     }
                 }
 
-               // asyncPostSignInCall()
+               asyncPostSignInCall()
             } else {
                 const asyncPostSignInCall = async () => {
                     try {
@@ -215,8 +215,8 @@ function getFbUserData(){
                             },
 
                             body: JSON.stringify({
-                                email: userInfo.email,
-                                password: "123456"
+                                email: response.email,
+                                password: "NMWm%M2dNU2J2yH%1"
                             })
                         });
 
@@ -272,7 +272,7 @@ function getFbUserData(){
                     }
                 }
 
-                //asyncPostSignInCall()
+                asyncPostSignInCall()
             }
             //window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
             // document.querySelector('#submitRegisterBtn').value = 'Continue';
@@ -285,7 +285,7 @@ function getFbUserData(){
         }
     }
 
-    //asyncPostCall()
+    asyncPostCall()
 
 
 
@@ -297,7 +297,7 @@ function getFbUserData(){
 
 
 
-    //    window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports');
+       window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports');
     });
 }
 
