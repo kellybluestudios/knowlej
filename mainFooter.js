@@ -39,9 +39,11 @@ $('#r_logout').click(function (e) {
             FB.logout(function(response) {
                 // Person is now logged out
                     console.log(response)
-
              });
-            // window.location.replace('https://knowlejapp.webflow.io/')
+             setTimeout(function(){
+                window.location.replace('https://knowlejapp.webflow.io/')    
+             }, 2000)
+            
         } else {
             console.log('Something Went Wrong')
         }
