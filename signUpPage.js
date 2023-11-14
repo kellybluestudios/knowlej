@@ -299,7 +299,7 @@ function getFbUserData(){
 
         setTimeout(function(){
             window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports');
-        }, 5000)
+        }, 15000)
 
        
     });
