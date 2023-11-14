@@ -116,9 +116,30 @@ $('#facebook_sign_in').click(function (e) {
     fLogin();
 })
 
+// Fetch the user profile data from facebook
+function getFbUserData(){
+    FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
+    function (response) {
+
+       console.log(response);
+       localStorage.setItem('fb_user_profile', JSON.stringify(response));
+       window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports');
+    });
+}
 
 
 
+
+
+$('#logout').click(function(e){
+    e.preventDefault();
+    console.log('logout clicked')
+
+    FB.logout(function(response) {
+        // Person is now logged out
+        console.log(response);
+     });
+})
 
 // window.fbAsyncInit = function() {
 //     // FB JavaScript SDK configuration and setup
@@ -162,16 +183,7 @@ $('#facebook_sign_in').click(function (e) {
 //     }, {scope: 'email'});
 // }
 
-// Fetch the user profile data from facebook
-function getFbUserData(){
-    FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
-    function (response) {
 
-       console.log(response);
-       localStorage.setItem('fb_user_profile', JSON.stringify(response));
-       window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports');
-    });
-}
 
 // // Logout from facebook
 // function fbLogout() {
@@ -199,16 +211,3 @@ function getFbUserData(){
 // 	}, {scope: 'email,public_profile', return_scopes: true});
 // }, false);
 
-
-
-
-
-$('#logout').click(function(e){
-    e.preventDefault();
-    console.log('logout clicked')
-
-    FB.logout(function(response) {
-        // Person is now logged out
-        console.log(response);
-     });
-})
