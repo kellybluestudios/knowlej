@@ -121,8 +121,8 @@ function getFbUserData(){
 
        console.log(response);
     //    localStorage.setItem('fb_user_profile', JSON.stringify(response));
-    let userData =  JSON.parse(response); 
-    console.log(userData);
+    // let userData =  JSON.parse(response); 
+    // console.log(userData);
     let fullNameFb = response.first_name + " " + response.last_name;
     let fb_img = `https://graph.facebook.com/${response.id}/picture?type=large`
     console.log(fullNameFb);
