@@ -293,7 +293,7 @@ function getFbUserData(){
 
 
 
-       window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports');
+    //    window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports');
     });
 }
 
