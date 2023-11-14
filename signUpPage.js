@@ -295,9 +295,11 @@ function getFbUserData(){
 
 
 
+        setTimeout(function(){
+            window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports');
+        }, 5000)
 
-
-       window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports');
+       
     });
 }
 
