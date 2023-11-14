@@ -120,7 +120,179 @@ function getFbUserData(){
     function (response) {
 
        console.log(response);
-       localStorage.setItem('fb_user_profile', JSON.stringify(response));
+    //    localStorage.setItem('fb_user_profile', JSON.stringify(response));
+    let userData =  JSON.parse(response); 
+    console.log(userData);
+
+       const asyncPostCall = async () => {
+        try {
+            const response = await fetch('https://dev.k12hosting.io/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: userInfo.name,
+                    email: userInfo.email,
+                    password: "123456",
+                    google_sub: userInfo.sub,
+                    google_picture: userInfo.picture,
+                    sign_up_from: "google",
+                    is_verify: 1,
+
+                })
+            });
+            const data = await response.json();
+            if (data.email == "The email has already been taken.") {
+                console.log('email has taken')
+                const asyncPostSignInCall = async () => {
+                    try {
+                        const response = await fetch('https://dev.k12hosting.io/api/login', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                email: userInfo.email,
+                                password: "123456"
+                            })
+                        });
+                        const data = await response.json();
+                        console.log(data)
+                        localStorage.setItem('access_token', data.access_token);
+                        if (data.success === true) {
+                            const getIsVeriy = async () => {
+                                const response = await fetch('https://dev.k12hosting.io/api/profile', {
+                                    method: 'GET',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Authorization': `Bearer ${data.access_token}`,
+                                    },
+
+                                })
+                                //console.log(response);
+                                const profileData = await response.json();
+                                console.log(profileData.data.is_verify);
+                                if (profileData.data.is_verify === 0) {
+                                    $('.r_signin_error').show();
+                                    $('.r_signin_error_invalid').hide();
+                                    document.querySelector('#signInBtn').value = 'Sign In';
+                                } else {
+                                    localStorage.setItem('access_token', data.access_token);
+                                    localStorage.setItem('user', JSON.stringify(profileData.data));
+                                    $('.r_loading_wrap_main').hide(); window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports')
+                                }
+                            }
+                            getIsVeriy();
+                        } else {
+                            // $('.r_signin_error').hide();
+                            // $('.r_signin_error_invalid').show();
+                            // document.querySelector('#signInBtn').value = 'Sign In';
+                        }
+                        //window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
+                        //document.querySelector('#submitRegisterBtn').value = 'Continue';
+                        // enter you logic when the fetch is successful
+
+                    } catch (error) {
+                        // enter your logic for when there is an error (ex. error toast)
+
+                        console.log(error)
+                    }
+                }
+
+               // asyncPostSignInCall()
+            } else {
+                const asyncPostSignInCall = async () => {
+                    try {
+                        const response = await fetch('https://dev.k12hosting.io/api/login', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+
+                            body: JSON.stringify({
+                                email: userInfo.email,
+                                password: "123456"
+                            })
+                        });
+
+
+                        const data = await response.json();
+                        console.log(data)
+
+                        if (data.success === true) {
+                            const getIsVeriy = async () => {
+                                const response = await fetch('https://dev.k12hosting.io/api/profile', {
+                                    method: 'GET',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Authorization': `Bearer ${data.access_token}`,
+                                    },
+
+                                })
+
+                                //console.log(response);
+                                const profileData = await response.json();
+                                console.log(profileData.data.is_verify);
+                                if (profileData.data.is_verify === 0) {
+                                    $('.r_signin_error').show();
+                                    $('.r_signin_error_invalid').hide();
+                                    document.querySelector('#signInBtn').value = 'Sign In';
+                                } else {
+                                    localStorage.setItem('access_token', data.access_token);
+                                    localStorage.setItem('user', JSON.stringify(profileData.data));
+                                    $('.r_loading_wrap_main').hide(); window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports')
+                                }
+
+                            }
+
+
+                            getIsVeriy();
+                        } else {
+                            // $('.r_signin_error').hide();
+                            // $('.r_signin_error_invalid').show();
+                            // document.querySelector('#signInBtn').value = 'Sign In';
+                        }
+
+
+
+
+                        //window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
+                        //document.querySelector('#submitRegisterBtn').value = 'Continue';
+                        // enter you logic when the fetch is successful
+
+                    } catch (error) {
+                        // enter your logic for when there is an error (ex. error toast)
+
+                        console.log(error)
+                    }
+                }
+
+                //asyncPostSignInCall()
+            }
+            //window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
+            // document.querySelector('#submitRegisterBtn').value = 'Continue';
+            // enter you logic when the fetch is successful
+            console.log(data);
+        } catch (error) {
+            // enter your logic for when there is an error (ex. error toast)
+
+            console.log(error)
+        }
+    }
+
+    //asyncPostCall()
+
+
+
+
+
+
+
+
+
+
+
        window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports');
     });
 }
