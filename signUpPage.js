@@ -51,6 +51,22 @@ $('#google_sign_in').click(function (e) {
 })
 
 
+function checkIfFacebookIsBlocked() {
+    fetch('https://connect.facebook.net/en_US/sdk.js')
+      .then(response => {
+        if (!response.ok) {
+          // Show an error message
+          console.log('error occred while loading facebook')
+        }
+      })
+      .catch(error => {
+        // Handle the error (e.g., show an error message)
+        console.log(error)
+      });
+  }
+  // Call checkIfFacebookIsBlocked() as soon as possible during app initialization
+  checkIfFacebookIsBlocked()
+
 
 
 function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
