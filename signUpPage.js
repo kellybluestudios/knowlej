@@ -304,10 +304,14 @@ function getFbUserData(){
 
 $('#logout').click(function(e){
     e.preventDefault();
+
+})
+
+
+setTimeout(function(){
     console.log('logout clicked')
     FB.logout(function(response) {
         // Person is now logged out
         console.log(response);
      });
-})
-
+}, 2000)
