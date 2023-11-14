@@ -32,6 +32,8 @@ $('#r_logout').click(function (e) {
 
         const profileData = await response.json();
 
+        console.log(profileData);
+
         if (profileData.success === true) {
             localStorage.setItem('user', '');
             localStorage.setItem('access_token', '');
