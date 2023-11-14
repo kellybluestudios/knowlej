@@ -1,7 +1,7 @@
 Webflow.push(function () {
     // Disable submitting form fields during development
     $('form').submit(function () {
-        console.log('Form submissions have been disabled during development.');
+        // console.log('Form submissions have been disabled during development.');
         return false;
     });
 });
@@ -29,7 +29,14 @@ $('#email-form').submit(function (event) {
 
 
             const data = await response.json();
-            window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
+            
+            if(data.email == "The email has already been taken."){
+                $('.r_signin_error_invalid').text('Email already taken.')
+                $('.r_signin_error_invalid').show();
+            }else{
+                window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
+            }
+           
             document.querySelector('#submitRegisterBtn').value = 'Continue';
             // enter you logic when the fetch is successful
             console.log(data);
