@@ -70,20 +70,6 @@ function checkLoginState() {               // Called when a person is finished w
 }
 
 
-window.fbAsyncInit = function () {
-    FB.init({
-        appId: '3497592523828268',
-        cookie: true,                     // Enable cookies to allow the server to access the session.
-        xfbml: true,                     // Parse social plugins on this webpage.
-        version: 'v18.0'           // Use this Graph API version for this call.
-    });
-
-
-    FB.getLoginStatus(function (response) {   // Called after the JS SDK has been initialized.
-        statusChangeCallback(response);        // Returns the login status.
-    });
-};
-
 function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function (response) {
