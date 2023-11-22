@@ -72,10 +72,7 @@ if (Object.keys(params).length > 0) {
                                             $('.r_signin_error').show();
                                             $('.r_signin_error_invalid').hide();
                                             document.querySelector('#signInBtn').value = 'Sign In';
-                                        } else if (profileData.data.school_name === "" || profileData.data.school_name === null) {
-                                            console.log('empty hai')
                                         } else {
-
                                             localStorage.setItem('access_token', data.access_token);
                                             localStorage.setItem('user', JSON.stringify(profileData.data));
                                             $('.r_loading_wrap_main').hide(); window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports')
@@ -136,8 +133,6 @@ if (Object.keys(params).length > 0) {
                                             $('.r_signin_error').show();
                                             $('.r_signin_error_invalid').hide();
                                             document.querySelector('#signInBtn').value = 'Sign In';
-                                        } else if (profileData.data.school_name === "" || profileData.data.school_name === null) {
-                                            console.log('empty hai')
                                         } else {
                                             localStorage.setItem('access_token', data.access_token);
                                             localStorage.setItem('user', JSON.stringify(profileData.data));
