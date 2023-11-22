@@ -50,9 +50,9 @@ $('#email-form').submit(function (event) {
                         console.log('empty hai')
                     } else {
                         console.log('fir eh bhi chal rah ahai')
-                        // localStorage.setItem('access_token', data.access_token);
-                        // localStorage.setItem('user', JSON.stringify(profileData.data));
-                        // window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports')
+                        localStorage.setItem('access_token', data.access_token);
+                        localStorage.setItem('user', JSON.stringify(profileData.data));
+                        window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports')
                     }
 
                 }
