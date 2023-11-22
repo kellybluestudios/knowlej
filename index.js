@@ -21,6 +21,8 @@ function signInCheck() {
                 localStorage.setItem('auth_info', '');
                 window.location.replace('https://knowlejapp.webflow.io/')
                 console.log('data null')
+            }else if(profileData.data.school_name == null || profileData.data.school_name == ''){
+                console.log("ab kuch to karenge")
             } else {
                 console.log('profile verified')
             }
