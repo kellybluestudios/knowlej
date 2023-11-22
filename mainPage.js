@@ -72,9 +72,9 @@ if (Object.keys(params).length > 0) {
                                             $('.r_signin_error').show();
                                             $('.r_signin_error_invalid').hide();
                                             document.querySelector('#signInBtn').value = 'Sign In';
-                                        } else if(profileData.data.school_name === ""){
+                                        } else if (profileData.data.school_name === "" || profileData.data.school_name === null) {
                                             console.log('empty hai')
-                                        }else{
+                                        } else {
 
                                             localStorage.setItem('access_token', data.access_token);
                                             localStorage.setItem('user', JSON.stringify(profileData.data));
@@ -136,6 +136,8 @@ if (Object.keys(params).length > 0) {
                                             $('.r_signin_error').show();
                                             $('.r_signin_error_invalid').hide();
                                             document.querySelector('#signInBtn').value = 'Sign In';
+                                        } else if (profileData.data.school_name === "" || profileData.data.school_name === null) {
+                                            console.log('empty hai')
                                         } else {
                                             localStorage.setItem('access_token', data.access_token);
                                             localStorage.setItem('user', JSON.stringify(profileData.data));
