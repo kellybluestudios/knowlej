@@ -23,6 +23,7 @@ function signInCheck() {
                 console.log('data null')
             }else if(profileData.data.school_name == null || profileData.data.school_name == ''){
                 console.log("ab kuch to karenge")
+                $('.r_school_overlay').show();
             } else {
                 console.log('profile verified')
             }
