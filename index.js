@@ -1,8 +1,10 @@
+$('.r_loading_wrap_main').show();
+
 function signInCheck() {
     if (!localStorage.getItem('access_token') || localStorage.getItem('access_token') === null || localStorage.getItem('access_token') === undefined) {
         window.location.replace('https://knowlejapp.webflow.io/')
     } else {
-        $('.r_loading_wrap_main').show();
+
         const getIsVeriy = async () => {
             const response = await fetch('https://dev.k12hosting.io/api/profile', {
                 method: 'GET',
