@@ -1,10 +1,10 @@
-// Webflow.push(function () {
-//     // Disable submitting form fields during development
-//     $('form').submit(function () {
-//         // console.log('Form submissions have been disabled during development.');
-//         return false;
-//     });
-// });
+Webflow.push(function () {
+    // Disable submitting form fields during development
+    $('form').submit(function () {
+        // console.log('Form submissions have been disabled during development.');
+        return false;
+    });
+});
 $('#email-form').submit(function (event) {
     event.preventDefault()
     document.querySelector('#submitRegisterBtn').value = 'Please wait...';

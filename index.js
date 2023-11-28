@@ -1,12 +1,12 @@
 $('.r_loading_wrap_main').show();
 
-Webflow.push(function () {
-    // Disable submitting form fields during development
-    $('form').submit(function () {
-        // console.log('Form submissions have been disabled during development.');
-        return false;
-    });
-});
+// Webflow.push(function () {
+//     // Disable submitting form fields during development
+//     $('form').submit(function () {
+//         // console.log('Form submissions have been disabled during development.');
+//         return false;
+//     });
+// });
 
 
 function signInCheck() {
