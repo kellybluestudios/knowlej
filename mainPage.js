@@ -1,3 +1,11 @@
+Webflow.push(function () {
+    // Disable submitting form fields during development
+    $('form').submit(function () {
+        // console.log('Form submissions have been disabled during development.');
+        return false;
+    });
+});
+
 let params = {};
 let regex = /([^&=]+)=([^&]*)/g, m;
 while (m = regex.exec(location.href)) {
