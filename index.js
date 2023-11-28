@@ -45,8 +45,8 @@ function signInCheck() {
                     document.querySelector('#submitSchoolSelectBtn').value = 'Please wait...';
                 
                     let school_name = $('#school_name').val();
-                    let user = localStorage.getItem('user');
-                    console.log(user[0].id);
+                    let user = JSON.parse(localStorage.getItem('user'));
+                    console.log(user.id);
                     console.log(school_name);
                     const asyncPostCall = async () => {
                         try {
