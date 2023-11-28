@@ -50,7 +50,7 @@ function signInCheck() {
                     console.log(school_name);
                     const asyncPostCall = async () => {
                         try {
-                            const response = await fetch('http://dev.k12hosting.io/api/verify-user', {
+                            const response = await fetch('https://dev.k12hosting.io/api/verify-user', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',
