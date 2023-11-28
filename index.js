@@ -48,42 +48,42 @@ function signInCheck() {
                     let user = localStorage.getItem('user');
                     console.log(user);
                     console.log(school_name);
-                    // const asyncPostCall = async () => {
-                    //     try {
-                    //         const response = await fetch('https://dev.k12hosting.io/api/register', {
-                    //             method: 'POST',
-                    //             headers: {
-                    //                 'Content-Type': 'application/json'
-                    //             },
+                    const asyncPostCall = async () => {
+                        try {
+                            const response = await fetch('http://dev.k12hosting.io/api/verify-user', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+                                },
                 
-                    //             body: JSON.stringify({
-                    //                 name: name,
-                    //                 email: email,
-                    //                 password: password
-                    //             })
-                    //         });
+                                body: JSON.stringify({
+                                    id: user.id,
+                                    school_name: school_name
+                                })
+                            });
                 
                 
-                    //         const data = await response.json();
+                            const data = await response.json();
                 
-                    //         if (data.email == "The email has already been taken.") {
-                    //             $('.r_signin_error_invalid').text('Email Address already taken.')
-                    //             $('.r_signin_error_invalid').show();
-                    //         } else {
-                    //             window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
-                    //         }
+                            // if (data.email == "The email has already been taken.") {
+                            //     $('.r_signin_error_invalid').text('Email Address already taken.')
+                            //     $('.r_signin_error_invalid').show();
+                            // } else {
+                            //     window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
+                            // }
                 
-                    //         document.querySelector('#submitRegisterBtn').value = 'Sign Up';
-                    //         // enter you logic when the fetch is successful
-                    //         console.log(data);
-                    //     } catch (error) {
-                    //         // enter your logic for when there is an error (ex. error toast)
+                            // document.querySelector('#submitSchoolSelectBtn').value = 'Sign Up';
+                            // enter you logic when the fetch is successful
+                            console.log(data);
+                        } catch (error) {
+                            // enter your logic for when there is an error (ex. error toast)
                 
-                    //         console.log(error)
-                    //     }
-                    // }
+                            console.log(error)
+                        }
+                    }
                 
-                    // asyncPostCall()
+                    asyncPostCall()
                 
                 })
 
