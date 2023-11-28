@@ -46,7 +46,7 @@ function signInCheck() {
                 
                     let school_name = $('#school_name').val();
                     let user = localStorage.getItem('user');
-                    console.log(user.id);
+                    console.log(user[0].id);
                     console.log(school_name);
                     const asyncPostCall = async () => {
                         try {
