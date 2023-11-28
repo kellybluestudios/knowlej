@@ -1,5 +1,14 @@
 $('.r_loading_wrap_main').show();
 
+Webflow.push(function () {
+    // Disable submitting form fields during development
+    $('form').submit(function () {
+        // console.log('Form submissions have been disabled during development.');
+        return false;
+    });
+});
+
+
 function signInCheck() {
     if (!localStorage.getItem('access_token') || localStorage.getItem('access_token') === null || localStorage.getItem('access_token') === undefined) {
         window.location.replace('https://knowlejapp.webflow.io/')
@@ -28,6 +37,58 @@ function signInCheck() {
             }else if(profileData.data.school_name == null || profileData.data.school_name == ''){
                 console.log("ab kuch to karenge")
                 $('.r_school_overlay').show();
+
+
+
+                $('#school_selector_form').submit(function (event) {
+                    event.preventDefault()
+                    document.querySelector('#submitSchoolSelectBtn').value = 'Please wait...';
+                
+                    let school_name = $('#school_name').val();
+                    let user = localStorage.getItem('user');
+                    console.log(user);
+                    console.log(school_name);
+                    // const asyncPostCall = async () => {
+                    //     try {
+                    //         const response = await fetch('https://dev.k12hosting.io/api/register', {
+                    //             method: 'POST',
+                    //             headers: {
+                    //                 'Content-Type': 'application/json'
+                    //             },
+                
+                    //             body: JSON.stringify({
+                    //                 name: name,
+                    //                 email: email,
+                    //                 password: password
+                    //             })
+                    //         });
+                
+                
+                    //         const data = await response.json();
+                
+                    //         if (data.email == "The email has already been taken.") {
+                    //             $('.r_signin_error_invalid').text('Email Address already taken.')
+                    //             $('.r_signin_error_invalid').show();
+                    //         } else {
+                    //             window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
+                    //         }
+                
+                    //         document.querySelector('#submitRegisterBtn').value = 'Sign Up';
+                    //         // enter you logic when the fetch is successful
+                    //         console.log(data);
+                    //     } catch (error) {
+                    //         // enter your logic for when there is an error (ex. error toast)
+                
+                    //         console.log(error)
+                    //     }
+                    // }
+                
+                    // asyncPostCall()
+                
+                })
+
+
+
             } else {
                 console.log('profile verified')
             }
