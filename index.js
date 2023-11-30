@@ -71,6 +71,7 @@ function signInCheck() {
 
 
                 $('#school_selector_form').submit(function (event) {
+                    console.log("event working")
                     event.preventDefault()
                     document.querySelector('#submitSchoolSelectBtn').value = 'Please wait...';
 
@@ -96,8 +97,6 @@ function signInCheck() {
 
                             const data = await response.json();
                             localStorage.setItem('user', data);
-                            
-                            $('.r_loading_wrap_main').hide()
 
                             // if (data.email == "The email has already been taken.") {
                             //     $('.r_signin_error_invalid').text('Email Address already taken.')
