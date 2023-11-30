@@ -1,4 +1,4 @@
-$('.r_loading_wrap_main').show();
+
 
 // Webflow.push(function () {
 //     // Disable submitting form fields during development
@@ -39,6 +39,7 @@ const logoutFunc = async (token) => {
 }
 
 function signInCheck() {
+    $('.r_loading_wrap_main').show();
     if (!localStorage.getItem('access_token') || localStorage.getItem('access_token') === null || localStorage.getItem('access_token') === undefined) {
         window.location.replace('https://knowlejapp.webflow.io/')
     } else {
