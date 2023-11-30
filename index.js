@@ -124,6 +124,7 @@ function signInCheck() {
                 console.log("not nulled")
                 if(profileData.data.user_verifyed_by_admin == 0){
                     $('.r-school-selector-wrap').hide();
+                    $('.r-request-sent-modal-wrap').show();
                 }else if(profileData.data.user_verifyed_by_admin == 1){
                     $('.r_school_overlay').hide();
                 }else{
