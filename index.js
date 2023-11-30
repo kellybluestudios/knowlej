@@ -57,8 +57,6 @@ function signInCheck() {
             //console.log(response);
             const profileData = await response.json();
             localStorage.setItem('user', JSON.stringify(profileData.data));
-            
-            console.log(profileData.data);
             if (profileData.data == null) {
                 localStorage.setItem('access_token', '');
                 localStorage.setItem('user', '');
@@ -66,14 +64,8 @@ function signInCheck() {
                 window.location.replace('https://knowlejapp.webflow.io/')
                 console.log('data null')
             } else if (profileData.data.school_name == null || profileData.data.school_name == '') {
-                
-                console.log("ab kuch to karenge")
                 $('.r_loading_wrap_main').hide()
-
-
-
                 $('#school_selector_form').submit(function (event) {
-                    console.log("event working")
                     event.preventDefault()
                     document.querySelector('#submitSchoolSelectBtn').value = 'Please wait...';
 
@@ -123,11 +115,7 @@ function signInCheck() {
                     asyncPostCall()
 
                 })
-
-
-
             }else if(profileData.data.school_name != null || profileData.data.school_name != ''){
-                console.log("not nulled")
                 if(profileData.data.user_verifyed_by_admin == 0){
                     $('.r_loading_wrap_main').hide()
                     $('.r-school-selector-wrap').hide();
