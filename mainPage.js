@@ -83,7 +83,8 @@ if (Object.keys(params).length > 0) {
                                         } else {
                                             localStorage.setItem('access_token', data.access_token);
                                             localStorage.setItem('user', JSON.stringify(profileData.data));
-                                            $('.r_loading_wrap_main').hide(); window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports')
+                                            // $('.r_loading_wrap_main').hide(); 
+                                            window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports')
                                         }
                                     }
                                     getIsVeriy();
@@ -144,7 +145,8 @@ if (Object.keys(params).length > 0) {
                                         } else {
                                             localStorage.setItem('access_token', data.access_token);
                                             localStorage.setItem('user', JSON.stringify(profileData.data));
-                                            $('.r_loading_wrap_main').hide(); window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports')
+                                            // $('.r_loading_wrap_main').hide(); 
+                                            window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports')
                                         }
 
                                     }
