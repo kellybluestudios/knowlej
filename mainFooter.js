@@ -17,7 +17,7 @@ if (userStr) {
 }
 
 
-$('#r_logout').click(function (e) {
+$('.r_logout').click(function (e) {
     e.preventDefault();
 
     let token = localStorage.getItem('access_token');
