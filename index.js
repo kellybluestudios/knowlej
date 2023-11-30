@@ -34,7 +34,7 @@ function signInCheck() {
                 localStorage.setItem('auth_info', '');
                 window.location.replace('https://knowlejapp.webflow.io/')
                 console.log('data null')
-            }else if(profileData.data.school_name == null || profileData.data.school_name == ''){
+            } else if (profileData.data.school_name == null || profileData.data.school_name == '') {
                 console.log("ab kuch to karenge")
                 $('.r_school_overlay').show();
 
@@ -43,7 +43,7 @@ function signInCheck() {
                 $('#school_selector_form').submit(function (event) {
                     event.preventDefault()
                     document.querySelector('#submitSchoolSelectBtn').value = 'Please wait...';
-                
+
                     let school_name = $('#school_name').val();
                     let user = JSON.parse(localStorage.getItem('user'));
                     console.log(user.id);
@@ -56,39 +56,41 @@ function signInCheck() {
                                     'Content-Type': 'application/json',
                                     'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
                                 },
-                
+
                                 body: JSON.stringify({
                                     id: user.id,
                                     school_name: school_name
                                 })
                             });
-                
-                
+
+
                             const data = await response.json();
-                
+
                             // if (data.email == "The email has already been taken.") {
                             //     $('.r_signin_error_invalid').text('Email Address already taken.')
                             //     $('.r_signin_error_invalid').show();
                             // } else {
                             //     window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
                             // }
-                
+
                             // document.querySelector('#submitSchoolSelectBtn').value = 'Sign Up';
                             // enter you logic when the fetch is successful
                             console.log(data);
                         } catch (error) {
                             // enter your logic for when there is an error (ex. error toast)
-                
+
                             console.log(error)
                         }
                     }
-                
+
                     asyncPostCall()
-                
+
                 })
 
 
 
+            }else if(profileData.data.school_name != null || profileData.data.school_name != ''){
+                console.log("not nulled")
             } else {
                 console.log('profile verified')
             }
