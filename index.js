@@ -55,7 +55,7 @@ function signInCheck() {
 
             //console.log(response);
             const profileData = await response.json();
-            $('.r_loading_wrap_main').hide()
+            
             console.log(profileData.data);
             if (profileData.data == null) {
                 localStorage.setItem('access_token', '');
@@ -96,6 +96,7 @@ function signInCheck() {
                             const data = await response.json();
                             localStorage.setItem('user', data);
                             
+                            $('.r_loading_wrap_main').hide()
 
                             // if (data.email == "The email has already been taken.") {
                             //     $('.r_signin_error_invalid').text('Email Address already taken.')
@@ -123,11 +124,14 @@ function signInCheck() {
             }else if(profileData.data.school_name != null || profileData.data.school_name != ''){
                 console.log("not nulled")
                 if(profileData.data.user_verifyed_by_admin == 0){
+                    $('.r_loading_wrap_main').hide()
                     $('.r-school-selector-wrap').hide();
                     $('.r-request-sent-modal-wrap').show();
                 }else if(profileData.data.user_verifyed_by_admin == 1){
+                    $('.r_loading_wrap_main').hide()
                     $('.r_school_overlay').hide();
                 }else{
+                    $('.r_loading_wrap_main').hide()
                     logoutFunc(localStorage.getItem('access_token'))
                 }
             } else {
