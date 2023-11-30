@@ -65,6 +65,7 @@ function signInCheck() {
                 window.location.replace('https://knowlejapp.webflow.io/')
                 console.log('data null')
             } else if (profileData.data.school_name == null || profileData.data.school_name == '') {
+                localStorage.setItem('user', JSON.stringify(profileData.data));
                 console.log("ab kuch to karenge")
                 $('.r_loading_wrap_main').hide()
 
