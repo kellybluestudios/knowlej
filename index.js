@@ -9,6 +9,35 @@ $('.r_loading_wrap_main').show();
 // });
 
 
+
+const logoutFunc = async (token) => {
+    const response = await fetch('https://dev.k12hosting.io/api/logout', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+        },
+
+    })
+
+    const profileData = await response.json();
+
+    if (profileData.success === true) {
+        localStorage.setItem('user', '');
+        localStorage.setItem('access_token', '');
+        localStorage.setItem('auth_info', '');
+        FB.logout(function (response) {
+            console.log(response)
+        });
+        setTimeout(function () {
+            window.location.replace('https://knowlejapp.webflow.io/')
+        }, 2000)
+
+    } else {
+        console.log('Something Went Wrong')
+    }
+}
+
 function signInCheck() {
     if (!localStorage.getItem('access_token') || localStorage.getItem('access_token') === null || localStorage.getItem('access_token') === undefined) {
         window.location.replace('https://knowlejapp.webflow.io/')
@@ -65,6 +94,8 @@ function signInCheck() {
 
 
                             const data = await response.json();
+                            localStorage.setItem('user', data);
+                            
 
                             // if (data.email == "The email has already been taken.") {
                             //     $('.r_signin_error_invalid').text('Email Address already taken.')
@@ -91,6 +122,13 @@ function signInCheck() {
 
             }else if(profileData.data.school_name != null || profileData.data.school_name != ''){
                 console.log("not nulled")
+                if(profileData.data.user_verifyed_by_admin == 0){
+                    $('.r-school-selector-wrap').hide();
+                }else if(profileData.data.user_verifyed_by_admin == 1){
+                    $('.r_school_overlay').hide();
+                }else{
+                    logoutFunc(localStorage.getItem('access_token'))
+                }
             } else {
                 console.log('profile verified')
             }

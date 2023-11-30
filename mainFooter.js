@@ -19,39 +19,42 @@ if (userStr) {
 
 $('#r_logout').click(function (e) {
     e.preventDefault();
+
     let token = localStorage.getItem('access_token');
-    const logoutCall = async () => {
-        const response = await fetch('https://dev.k12hosting.io/api/logout', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
+    logoutFunc(token)
+    // const logoutCall = async () => {
+    //     const response = await fetch('https://dev.k12hosting.io/api/logout', {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${token}`,
+    //         },
 
-        })
+    //     })
 
-        const profileData = await response.json();
+    //     const profileData = await response.json();
 
-        console.log(profileData);
+    //     console.log(profileData);
 
-        if (profileData.success === true) {
-            localStorage.setItem('user', '');
-            localStorage.setItem('access_token', '');
-            localStorage.setItem('auth_info', '');
-            FB.logout(function (response) {
-                // Person is now logged out
-                console.log(response)
-            });
-            setTimeout(function () {
-                window.location.replace('https://knowlejapp.webflow.io/')
-            }, 2000)
+    //     if (profileData.success === true) {
+    //         localStorage.setItem('user', '');
+    //         localStorage.setItem('access_token', '');
+    //         localStorage.setItem('auth_info', '');
+    //         FB.logout(function (response) {
+    //             // Person is now logged out
+    //             console.log(response)
+    //         });
+    //         setTimeout(function () {
+    //             window.location.replace('https://knowlejapp.webflow.io/')
+    //         }, 2000)
 
-        } else {
-            console.log('Something Went Wrong')
-        }
+    //     } else {
+    //         console.log('Something Went Wrong')
+    //     }
 
-    }
+    // }
 
 
-    logoutCall();
+    // logoutCall();
 })
+
