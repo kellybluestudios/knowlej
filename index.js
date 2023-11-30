@@ -96,7 +96,10 @@ function signInCheck() {
 
 
                             const data = await response.json();
-                            localStorage.setItem('user', data);
+                            localStorage.setItem('user', JSON.stringify(data));
+
+                            $('.r-school-selector-wrap').hide();
+                            $('.r-request-sent-modal-wrap').show();
 
                             // if (data.email == "The email has already been taken.") {
                             //     $('.r_signin_error_invalid').text('Email Address already taken.')
