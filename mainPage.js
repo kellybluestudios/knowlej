@@ -76,7 +76,7 @@ if (Object.keys(params).length > 0) {
                                         //console.log(response);
                                         const profileData = await response.json();
                                         console.log(profileData.data.is_verify);
-                                        if (profileData.data.is_verify === 0) {
+                                        if (profileData.data.is_verify === 0 || profileData.data.is_verify === null) {
                                             $('.r_signin_error').show();
                                             $('.r_signin_error_invalid').hide();
                                             document.querySelector('#signInBtn').value = 'Sign In';
@@ -138,7 +138,7 @@ if (Object.keys(params).length > 0) {
                                         //console.log(response);
                                         const profileData = await response.json();
                                         console.log(profileData.data.is_verify);
-                                        if (profileData.data.is_verify === 0) {
+                                        if (profileData.data.is_verify === 0 || profileData.data.is_verify === null) {
                                             $('.r_signin_error').show();
                                             $('.r_signin_error_invalid').hide();
                                             document.querySelector('#signInBtn').value = 'Sign In';
