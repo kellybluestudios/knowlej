@@ -63,6 +63,10 @@ function signInCheck() {
                 localStorage.setItem('auth_info', '');
                 window.location.replace('https://knowlejapp.webflow.io/')
                 console.log('data null')
+            }else if(profileData.data.is_verify === 0 || profileData.data.is_verify === null){
+                $('.r_signin_error').show();
+                $('.r_signin_error_invalid').hide();
+                document.querySelector('#signInBtn').value = 'Sign In';
             } else if (profileData.data.school_name == null || profileData.data.school_name == '') {
                 $('.r_loading_wrap_main').hide()
                 $('#school_selector_form').submit(function (event) {
