@@ -1,5 +1,15 @@
 let dataStudnents;
 
+let user = localStorage.getItem('user');
+
+if(user.role == 0){
+    $('.r__upload_students_btn').hide();
+    $(".r__download_students_btn").show();
+}else{
+    $('.r__upload_students_btn').show();
+    $(".r__download_students_btn").hide();
+}
+
 const getStudents = async () => {
     const response = await fetch('https://dev.k12hosting.io/api/students', {
         method: 'GET',
