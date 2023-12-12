@@ -41,7 +41,7 @@ const getStudents = async () => {
 
         console.log(dataSet)
     
-        new DataTable('#example', {
+        new DataTable('#students_table', {
             "data": dataSet,
             scrollX: true,
             "columns": [
