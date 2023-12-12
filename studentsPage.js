@@ -44,7 +44,10 @@ const getStudents = async () => {
         new DataTable('#example', {
             "data": dataSet,
             "columns": [
-                { "data": "students_id", "title": "Student ID", "visible": false },
+                { "data": "id", "title": "ID", "visible": false },
+                { "data": "created_at", "title": "Created At", "visible": false },
+                { "data": "updated_at", "title": "Updated At", "visible": false },
+                { "data": "students_id", "title": "Student ID"},
                 { "data": "students_first_name", "title": "First Name" },
                 { "data": "students_last_name", "title": "Last Name" },
                 { "data": "students_rewards_email", "title": "Email" },
