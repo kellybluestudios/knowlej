@@ -1,7 +1,31 @@
-let studentData = getStudents();
+let dataStudnents;
 
-console.log(studentData.data);
+const getStudents = async () => {
+    const response = await fetch('https://dev.k12hosting.io/api/students', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+        },
 
+    })
+
+    //console.log(response);
+    const studentsData = await response.json();
+    console.log(studentsData.success);
+    if(studentsData.success == true){
+       let dataStudnents = studentsData.data;
+    }else{
+        console.log('Something went wrong!')
+    }
+
+}
+
+
+getStudents();
+
+
+console.log(dataStudnents);
 
 
 $(document).ready(function () {

@@ -38,27 +38,7 @@ const logoutFunc = async (token) => {
     }
 }
 
-const getStudents = async () => {
-    const response = await fetch('https://dev.k12hosting.io/api/students', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-        },
 
-    })
-
-    //console.log(response);
-    const studentsData = await response.json();
-    console.log(studentsData.success);
-    if(studentsData.success == true){
-        console.log(studentsData.data)
-        return studentsData;
-    }else{
-        console.log('Something went wrong!')
-    }
-
-}
 
 
 
