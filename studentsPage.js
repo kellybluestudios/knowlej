@@ -89,7 +89,6 @@ $('#upload_students_form').submit(function (e) {
         const response = await fetch('https://dev.k12hosting.io/api/studentsimport', {
             method: 'POST',
             headers: {
-                'Content-Type': 'multipart/form-data',
                 'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
             },
 
