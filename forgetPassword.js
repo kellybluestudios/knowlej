@@ -1,3 +1,11 @@
+Webflow.push(function () {
+    // Disable submitting form fields during development
+    $('form').submit(function () {
+        // console.log('Form submissions have been disabled during development.');
+        return false;
+    });
+});
+
 $('#forgetPasswordForm').submit(function (event) {
     event.preventDefault()
     document.querySelector('#forgetPassBtn').value = 'Please wait...';
