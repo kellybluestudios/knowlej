@@ -5,12 +5,6 @@ console.log(studentData.data);
 
 
 $(document).ready(function () {
-    // Creating a table dynamically
-    var table = $('<table class="table" id="example">');
-
-    $('.r__data_table_wrap').append(table)
-
-
     const dataSet = [{ "name": "Lynsey Danshin", "position": "Biostatistician II", "office": "Apt 899", "extn": "01HHC3J46MSJWN96J5F73KZTKJ", "start_date": "11/16/2023", "salary": "$9.73" },
     { "name": "Marika Coney", "position": "Budget/Accounting Analyst II", "office": "Room 1355", "extn": "01HHC3J46PTVNCN00W6VAP9YF8", "start_date": "11/19/2023", "salary": "$7.54" },
     { "name": "Goldi Croley", "position": "Executive Secretary", "office": "Apt 374", "extn": "01HHC3J46RAZ31XMGRJBFHFR58", "start_date": "4/6/2023", "salary": "$0.47" },
