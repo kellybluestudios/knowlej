@@ -100,29 +100,29 @@ $('#upload_students_form').submit(function (e) {
     console.log(file)
 
 
-    const importStudents = async () => {
+    // const importStudents = async () => {
 
-        console.log(file)
-        const response = await fetch('https://dev.k12hosting.io/api/studentsimport', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-            },
+    //     console.log(file)
+    //     const response = await fetch('https://dev.k12hosting.io/api/studentsimport', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+    //         },
 
-            body: JSON.stringify({
-                file: $('#file').val()
-            })
+    //         body: JSON.stringify({
+    //             file: $('#file').val()
+    //         })
 
-        });
+    //     });
 
-        const data = await response.json();
+    //     const data = await response.json();
 
-        console.log(data);
-    }
+    //     console.log(data);
+    // }
 
 
 
-    importStudents()
+    // importStudents()
 
     // const upload = (file) => {
     //     const formData = new FormData();
@@ -146,44 +146,44 @@ $('#upload_students_form').submit(function (e) {
     // upload(file);
 
 
-    // function uploadFile() {
-    //     var fileInput = document.getElementById('file');
-    //     var file = fileInput.files[0];
+    function uploadFile() {
+        var fileInput = document.getElementById('file');
+        var file = fileInput.files[0];
 
-    //     if (file) {
-    //         var xhr = new XMLHttpRequest();
-    //         var formData = new FormData();
+        if (file) {
+            var xhr = new XMLHttpRequest();
+            var formData = new FormData();
 
-    //         // Append the file to the FormData object
-    //         formData.append('file', file);
+            // Append the file to the FormData object
+            formData.append('file', file);
 
-    //         // Configure the XMLHttpRequest
-    //         xhr.open('POST', 'https://dev.k12hosting.io/api/studentsimport', true);
+            // Configure the XMLHttpRequest
+            xhr.open('POST', 'https://dev.k12hosting.io/api/studentsimport', true);
 
-    //         // Set up the onload and onerror callbacks
-    //         xhr.onload = function () {
-    //             if (xhr.status === 200) {
-    //                 // Upload successful
-    //                 console.log('File uploaded successfully!');
-    //             } else {
-    //                 // Error during upload
-    //                 console.error('Error uploading file:', xhr.statusText);
-    //             }
-    //         };
+            // Set up the onload and onerror callbacks
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Upload successful
+                    console.log('File uploaded successfully!');
+                } else {
+                    // Error during upload
+                    console.error('Error uploading file:', xhr.statusText);
+                }
+            };
 
-    //         xhr.onerror = function () {
-    //             console.error('Network error during file upload');
-    //         };
+            xhr.onerror = function () {
+                console.error('Network error during file upload');
+            };
 
-    //         // Send the FormData with the file
-    //         xhr.send(formData);
-    //     } else {
-    //         console.error('No file selected');
-    //     }
-    // }
+            // Send the FormData with the file
+            xhr.send(formData);
+        } else {
+            console.error('No file selected');
+        }
+    }
 
 
-    // uploadFile()
+    uploadFile()
 
 })
 
