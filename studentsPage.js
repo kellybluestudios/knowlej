@@ -5,10 +5,10 @@ let userJson = localStorage.getItem('user');
 let user = JSON.parse(userJson);
 
 console.log(user.role)
-if(user.role == 0){
+if (user.role == 0) {
     $('.r__upload_students_btn').hide();
     $(".r__download_students_btn").show();
-}else{
+} else {
     $('.r__upload_students_btn').show();
     $(".r__download_students_btn").hide();
 }
@@ -100,50 +100,50 @@ $('#upload_students_form').submit(function (e) {
     console.log(file)
 
 
-    // const importStudents = async () => {
+    const importStudents = async () => {
 
-    //     console.log(file)
-    //     const response = await fetch('https://dev.k12hosting.io/api/studentsimport', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-    //         },
-
-    //         body: JSON.stringify({
-    //             file: $('#file').val()
-    //         })
-
-    //     });
-
-    //     const data = await response.json();
-
-    //     console.log(data);
-    // }
-
-
-
-    // importStudents()
-
-    const upload = (file) => {
-        const formData = new FormData();
-        formData.append('file', file);
-
-        fetch('https://dev.k12hosting.io/api/studentsimport', {
+        console.log(file)
+        const response = await fetch('https://dev.k12hosting.io/api/studentsimport', {
             method: 'POST',
-            body: formData
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+            },
+
+            body: JSON.stringify({
+                file: $('#file').val()
             })
-            .then(success => console.log(success))
-            .catch(error => console.log(error));
-    };
+
+        });
+
+        const data = await response.json();
+
+        console.log(data);
+    }
 
 
-    upload(file);
+
+    importStudents()
+
+    // const upload = (file) => {
+    //     const formData = new FormData();
+    //     formData.append('file', file);
+
+    //     fetch('https://dev.k12hosting.io/api/studentsimport', {
+    //         method: 'POST',
+    //         body: formData
+    //     })
+    //         .then(response => {
+    //             if (!response.ok) {
+    //                 throw new Error('Network response was not ok');
+    //             }
+    //             return response.json();
+    //         })
+    //         .then(success => console.log(success))
+    //         .catch(error => console.log(error));
+    // };
+
+
+    // upload(file);
 
 
     // function uploadFile() {
