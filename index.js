@@ -38,6 +38,25 @@ const logoutFunc = async (token) => {
     }
 }
 
+const getStudents = async () => {
+    const response = await fetch('https://dev.k12hosting.io/api/students', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+        },
+
+    })
+
+    //console.log(response);
+    const studentsData = await response.json();
+    console.log(studentsData);
+
+}
+
+
+
+
 function signInCheck() {
     $('.r_loading_wrap_main').show();
     if (!localStorage.getItem('access_token') || localStorage.getItem('access_token') === null || localStorage.getItem('access_token') === undefined) {
