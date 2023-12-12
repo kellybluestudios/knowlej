@@ -86,7 +86,7 @@ $('#upload_students_form').submit(function (e) {
     let file = $('#file').val()
     console.log(file)
     const importStudents = async () => {
-        const response = await fetch('http://dev.k12hosting.io/api/studentsimport', {
+        const response = await fetch('https://dev.k12hosting.io/api/studentsimport', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
