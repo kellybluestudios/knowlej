@@ -99,6 +99,26 @@ $('#upload_students_form').submit(function (e) {
     let file = $('#file').val()
     console.log(file)
 
+    var form = new FormData();
+    form.append('file', $('#file')[0].files[0]); 
+    
+    var settings = {
+      "url": "http://dev.k12hosting.io/api/studentsimport",
+      "method": "POST",
+      "timeout": 0,
+      "headers": {
+        "Authorization": `Bearer ${localStorage.getItem('access_token')}`
+      },
+      "processData": false,
+      "mimeType": "multipart/form-data",
+      "contentType": false,
+      "data": form
+    };
+    
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+
 
     // const importStudents = async () => {
 
@@ -146,45 +166,52 @@ $('#upload_students_form').submit(function (e) {
     // upload(file);
 
 
-    function uploadFile() {
-        var fileInput = document.getElementById('file');
-        var file = fileInput.files[0];
+    // function uploadFile() {
+    //     var fileInput = document.getElementById('file');
+    //     var file = fileInput.files[0];
 
-        if (file) {
-            var xhr = new XMLHttpRequest();
-            var formData = new FormData();
+    //     if (file) {
+    //         var xhr = new XMLHttpRequest();
+    //         var formData = new FormData();
 
-            // Append the file to the FormData object
-            formData.append('file', file);
+    //         // Append the file to the FormData object
+    //         formData.append('file', file);
 
-            // Configure the XMLHttpRequest
-            xhr.open('POST', 'https://dev.k12hosting.io/api/studentsimport', true);
+    //         // Configure the XMLHttpRequest
+    //         xhr.open('POST', 'https://dev.k12hosting.io/api/studentsimport', true);
 
-            // Set up the onload and onerror callbacks
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    // Upload successful
-                    console.log('File uploaded successfully!');
-                } else {
-                    // Error during upload
-                    console.error('Error uploading file:', xhr.statusText);
-                }
-            };
+    //         // Set up the onload and onerror callbacks
+    //         xhr.onload = function () {
+    //             if (xhr.status === 200) {
+    //                 // Upload successful
+    //                 console.log('File uploaded successfully!');
+    //             } else {
+    //                 // Error during upload
+    //                 console.error('Error uploading file:', xhr.statusText);
+    //             }
+    //         };
 
-            xhr.onerror = function () {
-                console.error('Network error during file upload');
-            };
+    //         xhr.onerror = function () {
+    //             console.error('Network error during file upload');
+    //         };
 
-            // Send the FormData with the file
-            xhr.send(formData);
-        } else {
-            console.error('No file selected');
-        }
-    }
+    //         // Send the FormData with the file
+    //         xhr.send(formData);
+    //     } else {
+    //         console.error('No file selected');
+    //     }
+    // }
 
 
-    uploadFile()
+    // uploadFile()
+
+    // $('')
+
+
+
 
 })
+
+
 
 
