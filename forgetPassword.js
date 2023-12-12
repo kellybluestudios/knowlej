@@ -30,9 +30,8 @@ $('#forgetPasswordForm').submit(function (event) {
             
 
             if (data.success == true) {
-                $('.r__forget_msg').text('Your new password reset link has been sent to your email');
                 $('.r__forget_msg').show();
-                $('#forgetPasswordForm').hide();
+                $('.Form').hide();
             } else {
                 // window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
             }
