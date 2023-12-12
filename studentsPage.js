@@ -1,6 +1,8 @@
 let dataStudnents;
 
-let user = localStorage.getItem('user');
+let userJson = localStorage.getItem('user');
+
+let user = JSON.parse(userJson);
 
 console.log(user.role)
 if(user.role == 0){
