@@ -31,7 +31,7 @@ $('#forgetPasswordForm').submit(function (event) {
 
             if (data.success == true) {
                 $('.r__forget_msg').show();
-                $('.Form').hide();
+                $('.r__form_block').hide();
             } else {
                 // window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
             }
