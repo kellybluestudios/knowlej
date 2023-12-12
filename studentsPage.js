@@ -2,6 +2,7 @@ let dataStudnents;
 
 let user = localStorage.getItem('user');
 
+console.log(user.role)
 if(user.role == 0){
     $('.r__upload_students_btn').hide();
     $(".r__download_students_btn").show();
