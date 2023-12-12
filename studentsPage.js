@@ -14,7 +14,7 @@ const getStudents = async () => {
     const studentsData = await response.json();
     console.log(studentsData.success);
     if(studentsData.success == true){
-       let dataStudnents = studentsData.data;
+       console.log(studentsData.data);
     }else{
         console.log('Something went wrong!')
     }
