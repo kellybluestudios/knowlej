@@ -93,7 +93,7 @@ $('#upload_students_form').submit(function (e) {
             },
 
             body: JSON.stringify({
-                "file": $('#file').val(),
+                file: $('#file').val()
             })
 
         });
