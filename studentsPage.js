@@ -85,27 +85,43 @@ $('#upload_students_form').submit(function (e) {
     console.log("sunmiu")
     let file = $('#file').val()
     console.log(file)
-    const importStudents = async () => {
-        const response = await fetch('https://dev.k12hosting.io/api/studentsimport', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-            },
-
-            body: JSON.stringify({
-                file: $('#file').val()
-            })
-
-        });
-
-        const data = await response.json();
-
-        console.log(data);
-    }
+    const upload = (file) => {
+        const formData = new FormData();
+        formData.append('file', file);
+      
+        fetch('https://dev.k12hosting.io/api/studentsimport', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(success => console.log(success))
+        .catch(error => console.log(error));
+      };
 
 
+      upload(file);
 
-    importStudents()
+    // const importStudents = async () => {
+    //     const response = await fetch('https://dev.k12hosting.io/api/studentsimport', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+    //         },
+
+    //         body: JSON.stringify({
+    //             file: $('#file').val()
+    //         })
+
+    //     });
+
+    //     const data = await response.json();
+
+    //     console.log(data);
+    // }
+
+
+
+    // importStudents()
 
 
 })
