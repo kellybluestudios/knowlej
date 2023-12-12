@@ -52,7 +52,7 @@ const getStudents = async () => {
                 { "data": "students_first_name", "title": "First Name" },
                 { "data": "students_last_name", "title": "Last Name" },
                 { "data": "students_rewards_email", "title": "Email" },
-                { "data": "students_grade_level	", "title": "Grade Level" },
+                { "data": "students_grade_level", "title": "Grade Level" },
                 { "data": "students_start_date", "title": "Start Date" },
                 { "data": "students_end_date", "title": "End Date" },
                 { "data": "students_attendence_rate", "title": "Attendence Rate" },
