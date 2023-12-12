@@ -43,6 +43,7 @@ const getStudents = async () => {
     
         new DataTable('#example', {
             "data": dataSet,
+            scrollX: true,
             "columns": [
                 { "data": "id", "title": "ID", "visible": false },
                 { "data": "created_at", "title": "Created At", "visible": false },
