@@ -103,7 +103,7 @@ $('#upload_students_form').submit(function (e) {
     form.append('file', $('#file')[0].files[0]); 
     
     var settings = {
-      "url": "http://dev.k12hosting.io/api/studentsimport",
+      "url": "https://dev.k12hosting.io/api/studentsimport",
       "method": "POST",
       "timeout": 0,
       "headers": {
