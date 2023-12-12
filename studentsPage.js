@@ -111,66 +111,66 @@ $('#upload_students_form').submit(function (e) {
 
     // importStudents()
 
-    // const upload = (file) => {
-    //     const formData = new FormData();
-    //     formData.append('file', file);
+    const upload = (file) => {
+        const formData = new FormData();
+        formData.append('file', file);
 
-    //     fetch('https://dev.k12hosting.io/api/studentsimport', {
-    //         method: 'POST',
-    //         body: formData
-    //     })
-    //         .then(response => {
-    //             if (!response.ok) {
-    //                 throw new Error('Network response was not ok');
-    //             }
-    //             return response.json();
-    //         })
-    //         .then(success => console.log(success))
-    //         .catch(error => console.log(error));
-    // };
-
-
-    // upload(file);
-
-
-    function uploadFile() {
-        var fileInput = document.getElementById('file');
-        var file = fileInput.files[0];
-
-        if (file) {
-            var xhr = new XMLHttpRequest();
-            var formData = new FormData();
-
-            // Append the file to the FormData object
-            formData.append('file', file);
-
-            // Configure the XMLHttpRequest
-            xhr.open('POST', 'https://dev.k12hosting.io/api/studentsimport', true);
-
-            // Set up the onload and onerror callbacks
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    // Upload successful
-                    console.log('File uploaded successfully!');
-                } else {
-                    // Error during upload
-                    console.error('Error uploading file:', xhr.statusText);
+        fetch('https://dev.k12hosting.io/api/studentsimport', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
                 }
-            };
-
-            xhr.onerror = function () {
-                console.error('Network error during file upload');
-            };
-
-            // Send the FormData with the file
-            xhr.send(formData);
-        } else {
-            console.error('No file selected');
-        }
-    }
+                return response.json();
+            })
+            .then(success => console.log(success))
+            .catch(error => console.log(error));
+    };
 
 
-    uploadFile()
+    upload(file);
+
+
+    // function uploadFile() {
+    //     var fileInput = document.getElementById('file');
+    //     var file = fileInput.files[0];
+
+    //     if (file) {
+    //         var xhr = new XMLHttpRequest();
+    //         var formData = new FormData();
+
+    //         // Append the file to the FormData object
+    //         formData.append('file', file);
+
+    //         // Configure the XMLHttpRequest
+    //         xhr.open('POST', 'https://dev.k12hosting.io/api/studentsimport', true);
+
+    //         // Set up the onload and onerror callbacks
+    //         xhr.onload = function () {
+    //             if (xhr.status === 200) {
+    //                 // Upload successful
+    //                 console.log('File uploaded successfully!');
+    //             } else {
+    //                 // Error during upload
+    //                 console.error('Error uploading file:', xhr.statusText);
+    //             }
+    //         };
+
+    //         xhr.onerror = function () {
+    //             console.error('Network error during file upload');
+    //         };
+
+    //         // Send the FormData with the file
+    //         xhr.send(formData);
+    //     } else {
+    //         console.error('No file selected');
+    //     }
+    // }
+
+
+    // uploadFile()
 
 })
 
