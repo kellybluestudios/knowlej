@@ -52,6 +52,7 @@ const getStudents = async () => {
     const studentsData = await response.json();
     console.log(studentsData.success);
     if(studentsData.success == true){
+        console.log(studentsData.data)
         return studentsData;
     }else{
         console.log('Something went wrong!')
