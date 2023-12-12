@@ -88,18 +88,23 @@ $('#upload_students_form').submit(function (e) {
     const upload = (file) => {
         const formData = new FormData();
         formData.append('file', file);
-      
+
         fetch('https://dev.k12hosting.io/api/studentsimport', {
-          method: 'POST',
-          body: formData
+            method: 'POST',
+            body: formData
         })
-        .then(response => response.json())
-        .then(success => console.log(success))
-        .catch(error => console.log(error));
-      };
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(success => console.log(success))
+            .catch(error => console.log(error));
+    };
 
 
-      upload(file);
+    upload(file);
 
     // const importStudents = async () => {
     //     const response = await fetch('https://dev.k12hosting.io/api/studentsimport', {
