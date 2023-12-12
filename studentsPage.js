@@ -92,9 +92,9 @@ $('#upload_students_form').submit(function (e) {
                 'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
             },
 
-            body: {
-                file:file,
-            },
+            body: JSON.stringify({
+                "file": $('#file').val(),
+            })
 
         });
 
