@@ -27,13 +27,15 @@ $('#forgetPasswordForm').submit(function (event) {
 
             const data = await response.json();
             
+            
 
-            // if (data.email == "The email has already been taken.") {
-            //     $('.r_signin_error_invalid').text('Email Address already taken.')
-            //     $('.r_signin_error_invalid').show();
-            // } else {
-            //     window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
-            // }
+            if (data.success == true) {
+                $('.r__forget_msg').text('Your new password reset link has been sent to your email');
+                $('.r__forget_msg').show();
+                $('#forgetPasswordForm').hide();
+            } else {
+                // window.location.replace('https://knowlejapp.webflow.io/users/verify-mail')
+            }
 
             // document.querySelector('#submitRegisterBtn').value = 'Sign Up';
             // enter you logic when the fetch is successful
