@@ -102,22 +102,24 @@ $('#upload_students_form').submit(function (e) {
     var form = new FormData();
     form.append('file', $('#file')[0].files[0]); 
     
-    var settings = {
-      "url": "https://dev.k12hosting.io/api/studentsimport",
-      "method": "POST",
-      "timeout": 0,
-      "headers": {
+    $.ajax({
+      url: "https://dev.k12hosting.io/api/studentsimport",
+      method: "POST",
+      headers: {
         "Authorization": `Bearer ${localStorage.getItem('access_token')}`
       },
-      "processData": false,
-      "mimeType": "multipart/form-data",
-      "contentType": false,
-      "data": form
-    };
-    
-    $.ajax(settings).done(function (response) {
-      console.log(response);
+      processData: false,
+      mimeType: "multipart/form-data",
+      contentType: false,
+      data: form,
+      success: function (response) {
+        console.log(response);
+      },
+      error: function (xhr, status, error) {
+        console.log(xhr.responseText);
+      }
     });
+    
 
 
     // const importStudents = async () => {
