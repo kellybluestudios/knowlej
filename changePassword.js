@@ -37,7 +37,8 @@ if(token){
             };
             
             $.ajax(settings).done(function (response) {
-              console.log(response['success']);
+                console.log('ckdlkajl')
+              console.log(response[0]);
               if(response.success){
                 $('.r__after_success').show();
                 $('.reset_password_form').hide();
