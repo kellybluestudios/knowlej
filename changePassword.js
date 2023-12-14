@@ -38,8 +38,13 @@ if(token){
             
             $.ajax(settings).done(function (response) {
               console.log(response);
-              $('.r__after_success').show();
-              $('.reset_password_form').hide();
+              if(response.sucess){
+                $('.r__after_success').show();
+                $('.reset_password_form').hide();
+              }else{
+                $('.r_signin_error').text("Invalid token! Please resend your password reset link.");
+                $('.r_signin_error').show();
+              }
               
             });
         }else{
