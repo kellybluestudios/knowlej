@@ -44,6 +44,8 @@ if(token){
               }else{
                 $('.r_signin_error').text("Invalid token! Please resend your password reset link.");
                 $('.r_signin_error').show();
+                $('#password_reset_btn').val('Update Password');
+                $('#password_reset_btn').css('pointer-events', 'auto');
               }
               
             });
