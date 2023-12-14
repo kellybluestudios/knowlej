@@ -37,8 +37,8 @@ if(token){
             };
             
             $.ajax(settings).done(function (response) {
-              console.log(response.success);
-              if(response.sucess){
+              console.log(response['success']);
+              if(response.success){
                 $('.r__after_success').show();
                 $('.reset_password_form').hide();
               }else{
