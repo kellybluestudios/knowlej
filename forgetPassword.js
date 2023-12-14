@@ -6,8 +6,14 @@ Webflow.push(function () {
     });
 });
 
+
+let submitted = false;
 $('#forgetPasswordForm').submit(function (event) {
     event.preventDefault()
+
+    if(submitted){
+        return false;
+    }
     document.querySelector('#forgetPassBtn').value = 'Please wait...';
     $('#forgetPassBtn').css('pointer-events', 'none');
 
@@ -48,5 +54,7 @@ $('#forgetPasswordForm').submit(function (event) {
     }
 
     asyncPostCall()
+
+    submitted = true;
 
 })
