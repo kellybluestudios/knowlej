@@ -37,11 +37,8 @@ if(token){
             };
             
             $.ajax(settings).done(function (response) {
-                console.log('ckdlkajl')
                 let res = JSON.parse(response)
-              console.log(res);
-              console.log(res['success']);
-              if(response.success){
+              if(res['success']){
                 $('.r__after_success').show();
                 $('.reset_password_form').hide();
               }else{
@@ -56,7 +53,6 @@ if(token){
             $('#password_reset_btn').val('Update Password');
             $('#password_reset_btn').css('pointer-events', 'auto');
             $('.r_signin_error').show();
-            console.log("Password does not match")
         }
     
     })
