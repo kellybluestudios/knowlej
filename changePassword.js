@@ -17,7 +17,10 @@ if(token){
 
     $('#change_password_form').submit(function(e){
         e.preventDefault();
+        $('.r_signin_error').hide();
         if($('#password').val() === $('#confirm-password').val()){
+            $('#password_reset_btn').text('Please wait...');
+            $('#password_reset_btn').css('pointer-events', 'none');
             let password = $('#confirm-password').val();
     
     
@@ -40,6 +43,9 @@ if(token){
               console.log(response);
             });
         }else{
+            $('#password_reset_btn').text('Update Password');
+            $('#password_reset_btn').css('pointer-events', 'auto');
+            $('.r_signin_error').show();
             console.log("Password does not match")
         }
     
