@@ -13,30 +13,37 @@ console.log(token);
 
 
 if(token){
+
+
     $('#change_password_form').submit(function(e){
         e.preventDefault();
+        if($('#password').val() === $('#confirm-password').val()){
+            let password = $('#confirm-password').val();
     
-        let password = $('#confirm-password').val();
     
-    
-        var form = new FormData();
-        form.append("token", token);
-    
-        form.append("password", password);
+            var form = new FormData();
+            form.append("token", token);
         
-        var settings = {
-          "url": "https://dev.k12hosting.io/api/change-password",
-          "method": "POST",
-          "timeout": 0,
-          "processData": false,
-          "mimeType": "multipart/form-data",
-          "contentType": false,
-          "data": form
-        };
-        
-        $.ajax(settings).done(function (response) {
-          console.log(response);
-        });
+            form.append("password", password);
+            
+            var settings = {
+              "url": "https://dev.k12hosting.io/api/change-password",
+              "method": "POST",
+              "timeout": 0,
+              "processData": false,
+              "mimeType": "multipart/form-data",
+              "contentType": false,
+              "data": form
+            };
+            
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        }else{
+            console.log("Password does not match")
+        }
+    
+
     
     })
     
