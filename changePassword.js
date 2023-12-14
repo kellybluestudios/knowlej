@@ -12,8 +12,6 @@ let token = searchParams.get('token');
 
 
 if(token){
-
-
     $('#change_password_form').submit(function(e){
         e.preventDefault();
         $('.r_signin_error').hide();
@@ -51,11 +49,11 @@ if(token){
             console.log("Password does not match")
         }
     
-
-    
     })
     
 }else{
-    window.location.replace('https://knowlejapp.webflow.io/')
+    setTimeout(function(){
+        window.location.replace('https://knowlejapp.webflow.io/')
+    }, 3000)
 }
 
