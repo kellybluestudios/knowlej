@@ -52,8 +52,6 @@ if(token){
     })
     
 }else{
-    setTimeout(function(){
-        window.location.replace('https://knowlejapp.webflow.io/')
-    }, 3000)
+    window.location.replace('https://knowlejapp.webflow.io/')
 }
 
