@@ -9,6 +9,7 @@ Webflow.push(function () {
 $('#forgetPasswordForm').submit(function (event) {
     event.preventDefault()
     document.querySelector('#forgetPassBtn').value = 'Please wait...';
+    $('#forgetPassBtn').css('pointer-events', 'none');
 
     let email = $('#forgetEmail').val();
     const asyncPostCall = async () => {
