@@ -130,8 +130,8 @@ $('#upload_students_form').submit(function (e) {
         console.log(res['data']['failed_records']);
         $('.r__upload_input_wrapper').hide();
         $('.r__import_wrap').show();
-        $('.r__students_imported_value').val(res['data']['imported']);
-        $('.r__failed_imports_val_dom').val(res['data']['failed_records']);
+        $('.r__students_imported_value').text(res['data']['imported']);
+        $('.r__failed_imports_val_dom').text(res['data']['failed_records']);
       },
       error: function (xhr, status, error) {
         console.log(xhr.responseText);
