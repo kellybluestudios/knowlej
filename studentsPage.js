@@ -59,7 +59,16 @@ const getStudents = async () => {
                 "language": {
                     "emptyTable": "No data available in table"
                 },
+                buttons: [
+                    {
+                        text: 'My Button',
+                        action: function ( e, dt, node, config ) {
+                            alert( 'Button activated' );
+                        }
+                    }
+                ],
                 scrollX: true,
+                responsive: true,
                 "columns": [
                     { "data": "id", "title": "ID", "visible": false },
                     { "data": "created_at", "title": "Created At", "visible": false },
