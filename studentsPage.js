@@ -127,7 +127,11 @@ $('#upload_students_form').submit(function (e) {
       success: function (response) {
         console.log(response);
         let res = JSON.parse(response);
-        console.log(res['data']);
+        console.log(res['data']['failed_records']);
+        $('.r__upload_input_wrapper').hide();
+        $('.r__import_wrap').show();
+        $('.r__students_imported_value').val(res['data']['imported']);
+        $('.r__failed_imports_val_dom').val(res['data']['failed_records']);
       },
       error: function (xhr, status, error) {
         console.log(xhr.responseText);
