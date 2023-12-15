@@ -56,6 +56,9 @@ const getStudents = async () => {
 
             new DataTable('#students_table', {
                 "data": dataSet,
+                "language": {
+                    "emptyTable": "No data available in table"
+                },
                 scrollX: true,
                 "columns": [
                     { "data": "id", "title": "ID", "visible": false },
