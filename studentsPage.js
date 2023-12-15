@@ -127,7 +127,7 @@ $('#upload_students_form').submit(function (e) {
       success: function (response) {
         console.log(response);
         let res = JSON.parse(response);
-        console.log(res['data']['imported']);
+        console.log(res['data']);
       },
       error: function (xhr, status, error) {
         console.log(xhr.responseText);
