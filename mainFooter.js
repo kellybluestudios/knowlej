@@ -2,6 +2,8 @@ let userStr = localStorage.getItem('user');
 let userObj;
 if (userStr) {
     userObj = JSON.parse(userStr);
+
+    let userImg = `https://dev.k12hosting.io/uploads/users/${userObj.user_img}`
     $('.r_username').text(userObj.name);
     if(userObj.user_img == null){
         if (userObj.google_picture == null) {
@@ -12,9 +14,9 @@ if (userStr) {
             $('.r_profile_pic').attr('srcset', `${userObj.google_picture}`);
         }
     }else{
-        $('.r_profile_pic').attr('src', `${userObj.user_img}`);
-        $('.r_profile_pic').attr('srcset', `${userObj.user_img}`);
-        $(".r__upload_img_prev").attr("src",`${userObj.user_img}`);
+        $('.r_profile_pic').attr('src', userImg);
+        $('.r_profile_pic').attr('srcset', userImg);
+        $(".r__upload_img_prev").attr("src",userImg);
         $(".r__upload_img_prev").attr("srcset", "");
     }
     

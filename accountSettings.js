@@ -7,7 +7,7 @@ Webflow.push(function () {
 });
 
 
-
+$(".r_user_email_input").prop('disabled', true);
 // r__upload_input
 $(".r__upload_label").attr("for", "r__upload_input");
 $(".r__upload_input").attr("type", "file");
