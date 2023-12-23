@@ -7,5 +7,5 @@ $('.r__upload_input').change(function(e) {
     value = e.target.value;
     console.log(value);
     $(".r__upload_img_prev").attr("src", value);
-    $(".r__upload_img_prev").attr("srcset", value);
+    $(".r__upload_img_prev").attr("srcset", "");
 })
