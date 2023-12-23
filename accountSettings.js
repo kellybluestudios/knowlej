@@ -72,6 +72,7 @@ console.log(user.id);
 
 
 $("#profile_update_form").submit(function (e) {
+  $(".update_submit_btn").val("Please wait...");
   e.preventDefault();
   console.log("submit happens")
 
@@ -112,7 +113,10 @@ $("#profile_update_form").submit(function (e) {
     console.log(response.data);
 
     localStorage.setItem('user', JSON.stringify(response.data));
-    window.location.reload();
+    setTimeout(function (){
+      window.location.reload();
+    }, 1000)
+    
   });
 
 
