@@ -60,22 +60,23 @@ function getImgData() {
 
 
 console.log(imgValue);
-console.log(`${localStorage.getItem('user').id}`)
+let user = JSON.parse(localStorage.getItem('user'));
 
+console.log(user.id);
 
 $("#profile_update_form").submit(function (e) {
   e.preventDefault();
   console.log("submit happens")
 
   var form = new FormData();
-  form.append("id", `${localStorage.getItem('user').id}`);
-  form.append("user_img", $('.r__upload_input')[0].files[0]);
-  form.append("bio", $(".r_user_bio_input").val());
-  form.append("phone", "912432398");
-  form.append("user_role", "Teacher");
-  form.append("location", $(".r_user_location_input").val());
-  form.append("website", "https://www.bestrandoms.com/random-los%20angeles-address");
+  form.append("id", user.id);
   form.append("name", "Rezak Ali");
+  // form.append("user_img", $('.r__upload_input')[0].files[0]);
+  form.append("bio", $(".r_user_bio_input").val());
+  // form.append("phone", "912432398");
+  // form.append("user_role", "Teacher");
+  form.append("location", $(".r_user_location_input").val());
+  // form.append("website", "https://www.bestrandoms.com/random-los%20angeles-address");
 
   var settings = {
     "url": "https://dev.k12hosting.io/api/profile",
