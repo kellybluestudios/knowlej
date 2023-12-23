@@ -113,9 +113,10 @@ $("#profile_update_form").submit(function (e) {
     console.log(response.data);
 
     localStorage.setItem('user', JSON.stringify(response.data));
-    setTimeout(function (){
-      window.location.reload();
-    }, 1000)
+    // setTimeout(function (){
+    //   window.location.reload();
+    // }, 1000)
+    window.location.replace('https://knowlejapp.webflow.io/admin-dashboards/reports')
     
   });
 
