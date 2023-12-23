@@ -25,11 +25,12 @@ function getImgData() {
       const fileReader = new FileReader();
       fileReader.readAsDataURL(files);
       fileReader.addEventListener("load", function () {
-
-        let width = this.result.naturalWidth;
-        let height = this.result.naturalHeight;
+        imgValue = this.result;
+        let width = imgValue.naturalWidth;
+        let height = imgValue.naturalHeight;
         console.log(width)
         console.log(height)
+        console.log(imgValue);
 
         if(width == height && width >= 64){
             console.log("chalega")
@@ -40,7 +41,7 @@ function getImgData() {
         // imgPreview.innerHTML = '<img src="' + this.result + '" />';
         $(".r__upload_img_prev").attr("src", this.result);
         $(".r__upload_img_prev").attr("srcset", "");
-        imgValue = this.result;
+        
       });    
     }
   }
