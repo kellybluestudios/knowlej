@@ -109,7 +109,10 @@ $("#profile_update_form").submit(function (e) {
   };
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
+    console.log(response.data);
+
+    localStorage.setItem('user', JSON.stringify(response.data));
+    window.location.reload();
   });
 
 
