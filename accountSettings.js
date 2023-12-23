@@ -76,7 +76,8 @@ $("#profile_update_form").submit(function (e) {
   e.preventDefault();
   console.log("submit happens")
 
-  console.log($('.r__upload_input').files[0])
+  console.log($('.r__upload_input').val())
+  console.log($('.r__upload_input')[0].val())
 
   var form = new FormData();
   form.append("id", user.id);
