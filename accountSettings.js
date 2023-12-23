@@ -86,6 +86,8 @@ $("#profile_update_form").submit(function (e) {
   form.append("name", $(".r_user_name_inuput").val());
   if($('.r__upload_input')[0].files[0]){
     form.append("user_img", $('.r__upload_input')[0].files[0]);
+  }else{
+    form.append("user_img", user.user_img);
   }
   form.append("bio", $(".r_user_bio_input").val());
   form.append("phone", $(".r_user_phone_input").val());
