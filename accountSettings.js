@@ -1,3 +1,13 @@
+Webflow.push(function () {
+  // Disable submitting form fields during development
+  $('form').submit(function () {
+      // console.log('Form submissions have been disabled during development.');
+      return false;
+  });
+});
+
+
+
 // r__upload_input
 $(".r__upload_label").attr("for", "r__upload_input");
 $(".r__upload_input").attr("type", "file");
@@ -50,3 +60,9 @@ function getImgData() {
 
 
   console.log(imgValue);
+
+
+  $("#profile_update_form").submit(function(e){
+    e.preventDefault();
+    console.log("submit happens")
+  })
