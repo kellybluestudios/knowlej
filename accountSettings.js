@@ -38,7 +38,7 @@ function getImgData() {
         console.log(height)
         console.log(imgValue);
 
-        if(width == height && width <= 64){
+        if(width == height && width >= 400){
             console.log("chalega")
         }else{
             console.log("nai chalega")
