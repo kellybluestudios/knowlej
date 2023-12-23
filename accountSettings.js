@@ -85,7 +85,7 @@ $("#profile_update_form").submit(function (e) {
     console.log("have file")
   }else{
     console.log("not fiel")
-    inputImage = user.user_img;
+    inputImage = "";
   }
 
   var form = new FormData();
