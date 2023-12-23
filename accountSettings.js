@@ -70,9 +70,13 @@ let user = JSON.parse(localStorage.getItem('user'));
 
 console.log(user.id);
 
+
+
 $("#profile_update_form").submit(function (e) {
   e.preventDefault();
   console.log("submit happens")
+
+  console.log($('.r__upload_input')[0].files[0])
 
   var form = new FormData();
   form.append("id", user.id);
