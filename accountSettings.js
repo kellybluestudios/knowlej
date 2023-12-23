@@ -70,7 +70,6 @@ let user = JSON.parse(localStorage.getItem('user'));
 
 console.log(user.id);
 
-let inputImage;
 
 $("#profile_update_form").submit(function (e) {
   e.preventDefault();
@@ -80,18 +79,14 @@ $("#profile_update_form").submit(function (e) {
   console.log($('.r__upload_input')[0])
   console.log($('.r__upload_input')[0].files[0])
 
-  if($('.r__upload_input')[0].files[0]){
-    inputImage = $('.r__upload_input')[0].files[0]
-    console.log("have file")
-  }else{
-    console.log("not fiel")
-    inputImage = null;
-  }
+
 
   var form = new FormData();
   form.append("id", user.id);
   form.append("name", $(".r_user_name_inuput").val());
-  form.append("user_img", inputImage);
+  if($('.r__upload_input')[0].files[0]){
+    form.append("user_img", $('.r__upload_input')[0].files[0]);
+  }
   form.append("bio", $(".r_user_bio_input").val());
   form.append("phone", $(".r_user_phone_input").val());
   form.append("user_role", $(".r__user_role_input").val());
