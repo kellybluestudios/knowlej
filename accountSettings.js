@@ -59,6 +59,12 @@ function getImgData() {
 }
 
 
+
+$(".r__user_role_input").prop("change", function(){
+  let selVal = $(".r__user_role_input").val();
+  console.log(selVal);
+})
+
 console.log(imgValue);
 let user = JSON.parse(localStorage.getItem('user'));
 
@@ -70,13 +76,13 @@ $("#profile_update_form").submit(function (e) {
 
   var form = new FormData();
   form.append("id", user.id);
-  form.append("name", "Rezak Ali");
-  // form.append("user_img", $('.r__upload_input')[0].files[0]);
+  form.append("name", $(".r_user_name_inuput").val());
+  form.append("user_img", $('.r__upload_input')[0].files[0]);
   form.append("bio", $(".r_user_bio_input").val());
-  // form.append("phone", "912432398");
-  // form.append("user_role", "Teacher");
+  form.append("phone", $(".r_user_phone_input").val());
+  form.append("user_role", $(".r__user_role_input").val());
   form.append("location", $(".r_user_location_input").val());
-  // form.append("website", "https://www.bestrandoms.com/random-los%20angeles-address");
+  form.append("website", $(".r_user_website_input").val());
 
   var settings = {
     "url": "https://dev.k12hosting.io/api/profile",
