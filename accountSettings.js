@@ -28,6 +28,8 @@ function getImgData() {
 
         let width = this.result.naturalWidth;
         let height = this.result.naturalHeight;
+        console.log(width)
+        console.log(height)
 
         if(width == height && width >= 64){
             console.log("chalega")
