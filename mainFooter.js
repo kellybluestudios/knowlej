@@ -3,17 +3,31 @@ let userObj;
 if (userStr) {
     userObj = JSON.parse(userStr);
     $('.r_username').text(userObj.name);
-    if (userObj.google_picture == null) {
-        $('.r_profile_pic').attr('src', `https://uploads-ssl.webflow.com/65161b9fa8e9cef28c88d2bb/654d1c2173031afbba9d3879_user%20(1).png`);
-
-    } else {
-        $('.r_profile_pic').attr('src', `${userObj.google_picture}`);
-        $('.r_profile_pic').attr('srcset', `${userObj.google_picture}`);
+    if(userObj.user_img == null){
+        if (userObj.google_picture == null) {
+            $('.r_profile_pic').attr('src', `https://uploads-ssl.webflow.com/65161b9fa8e9cef28c88d2bb/654d1c2173031afbba9d3879_user%20(1).png`);
+    
+        } else {
+            $('.r_profile_pic').attr('src', `${userObj.google_picture}`);
+            $('.r_profile_pic').attr('srcset', `${userObj.google_picture}`);
+        }
+    }else{
+        $('.r_profile_pic').attr('src', `${userObj.user_img}`);
+        $('.r_profile_pic').attr('srcset', `${userObj.user_img}`);
+        $(".r__upload_img_prev").attr("src",`${userObj.user_img}`);
+        $(".r__upload_img_prev").attr("srcset", "");
     }
+    
 
     $('.r_user_email').text(userObj.email)
     $('.r_user_name_inuput').val(userObj.name);
-    $('.r_user_email_input').val(userObj.email)
+    $('.r_user_email_input').val(userObj.email);
+    $('.r_user_bio_input').val(userObj.bio);
+    $('.r_user_phone_input').val(userObj.phone);
+    $('.r__user_role_input').val(userObj.user_role);
+    $('.r_user_location_input').val(userObj.location);
+    $('.r_user_website_input').val(userObj.website);
+
 }
 
 
