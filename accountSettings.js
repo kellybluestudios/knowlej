@@ -26,21 +26,23 @@ function getImgData() {
       fileReader.readAsDataURL(files);
       fileReader.addEventListener("load", function () {
         imgValue = this.result;
-        let width = imgValue.naturalWidth;
-        let height = imgValue.naturalHeight;
-        console.log(width)
-        console.log(height)
-        console.log(imgValue);
 
-        if(width == height && width >= 64){
-            console.log("chalega")
-        }else{
-            console.log("nai chalega")
-        }
         // imgPreview.style.display = "block";
         // imgPreview.innerHTML = '<img src="' + this.result + '" />';
         $(".r__upload_img_prev").attr("src", this.result);
         $(".r__upload_img_prev").attr("srcset", "");
+
+        let width = $(".r__upload_img_prev").prop("naturalWidth");
+        let height = $(".r__upload_img_prev").prop("naturalHeight");
+        console.log(width)
+        console.log(height)
+        console.log(imgValue);
+
+        if(width == height && width <= 64){
+            console.log("chalega")
+        }else{
+            console.log("nai chalega")
+        }
         
       });    
     }
