@@ -78,7 +78,13 @@ $("#profile_update_form").submit(function (e) {
 
   console.log($('.r__upload_input').val())
   console.log($('.r__upload_input')[0])
-  console.log($('.r__upload_input')[0].files)
+  console.log($('.r__upload_input')[0].files[0])
+
+  if($('.r__upload_input')[0].files[0]){
+    console.log("have file")
+  }else{
+    console.log("not fiel")
+  }
 
   var form = new FormData();
   form.append("id", user.id);
