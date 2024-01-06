@@ -35,6 +35,11 @@ if (userStr) {
     $('.r_bio_rich').text(userObj.bio);
     
 
+    let curDate = new Date();
+    let curDateStr = curDate.toLocaleDateString();
+    console.log(curDateStr);
+    $(".r_current_date_dom").text(curDateStr);
+
 }
 
 
