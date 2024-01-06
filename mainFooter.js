@@ -34,6 +34,7 @@ if (userStr) {
     $('.r_user_url').text(userObj.website);
     $('.r_bio_rich').text(userObj.bio);
     $('.r_school_name').text(userObj.school_name);
+    $('.r_position_dom').text(userObj.user_role);
     
 
     var today = new Date();
