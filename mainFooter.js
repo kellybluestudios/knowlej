@@ -35,10 +35,17 @@ if (userStr) {
     $('.r_bio_rich').text(userObj.bio);
     
 
-    let curDate = new Date();
-    let curDateStr = curDate.toLocaleDateString();
-    console.log(curDateStr);
-    $(".r_current_date_dom").text(curDateStr);
+    var today = new Date();
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var month = months[today.getMonth()];
+    var day = today.getDate();
+    var year = today.getFullYear();
+    
+    today = month + " " + day + ", " + year;
+
+    console.log(today);
+    $(".r_current_date_dom").text(today);
+    
 
 }
 
