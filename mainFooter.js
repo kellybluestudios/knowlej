@@ -29,6 +29,11 @@ if (userStr) {
     $('.r__user_role_input').val(userObj.user_role);
     $('.r_user_location_input').val(userObj.location);
     $('.r_user_website_input').val(userObj.website);
+    $('.r_user_phone').text(userObj.phone);
+    $('.r-user_location').text(userObj.location);
+    $('.r_user_url').text(userObj.website);
+    $('.r_bio_rich').text(userObj.bio);
+    
 
 }
 
