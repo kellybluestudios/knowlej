@@ -33,6 +33,7 @@ if (userStr) {
     $('.r-user_location').text(userObj.location);
     $('.r_user_url').text(userObj.website);
     $('.r_bio_rich').text(userObj.bio);
+    $('.r_school_name').text(userObj.school_name);
     
 
     var today = new Date();
